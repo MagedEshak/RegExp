@@ -102,7 +102,7 @@ let url3 = 'https://elzero.org';
 let url4 = 'https://www.elzero.org';
 let url5 = 'https://www.elzero.org:8080/articles.php?id=100&cat=topics';
 
-let urlReg = /[(https?)?(:\/\/)?(\w+\.)(\W)]/g; // Write Your Pattern Here
+let urlReg = /[(https?)?(:\/\/)?(\w+\.)(\W)]/ig; // Write Your Pattern Here
 
 console.log(url1.match(urlReg));
 console.log(url2.match(urlReg));
