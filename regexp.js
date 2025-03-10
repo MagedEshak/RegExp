@@ -4,7 +4,7 @@ You have the following IP, do a RegExp Pattern to match this IP.`);
 console.log("-".repeat(20));
 
 let ip = "2001:db8:3333:4444:5555:6666:7777:8888";
-let ipReg = /[(\w{3,4})\:(\w{3,4})]/ig;
+let ipReg = /^([0-9a-fA-F]{1,4}:){7}([0-9a-fA-F]{1,4})$/ig;
 
 console.log("test(): " + ipReg.test(ip)); // true
 console.log(ip.match(ipReg)); // 2,0,0,1,:,d,b,8,:,3,3,3,3,:,4,4,4,4,:,5,5,5,5,:,6,6,6,6,:,7,7,7,7,:,8,8,8,8
@@ -74,18 +74,12 @@ let date2 = "25 - 10 - 1982";
 let date3 = "25 10 1982";
 let date4 = "25 10 82";
 
-let dateReg = /[\d{2}(\/| -| \s)\d{2}(\/| - | \s)\d{4}]/igm; // Write Pattern Here
+let dateReg = /\b(\d{1,2})(?:\/| - | )(\d{1,2})(?:\/| - | )(\d{2,4})/igm; // Write Pattern Here
 
 console.log(date1.match(dateReg)); // "25/10/1982"
 console.log(date2.match(dateReg)); // "25 - 10 - 1982"
 console.log(date3.match(dateReg)); // "25 10 1982"
 console.log(date4.match(dateReg)); // "25 10 82"
-
-console.log(date1.match(dateReg).join("")); // "25/10/1982"
-console.log(date2.match(dateReg).join("")); // "25 - 10 - 1982"
-console.log(date3.match(dateReg).join("")); // "25 10 1982"
-console.log(date4.match(dateReg).join("")); // "25 10 82"
-
 
 //------------------------ Assignment 06 ---------------------------------------
 
@@ -102,16 +96,10 @@ let url3 = 'https://elzero.org';
 let url4 = 'https://www.elzero.org';
 let url5 = 'https://www.elzero.org:8080/articles.php?id=100&cat=topics';
 
-let urlReg = /[(https?)?(:\/\/)?(\w+\.)(\W)]/ig; // Write Your Pattern Here
+let urlReg = /(?:https?:\/\/)?(?:[-\w]+\.)?([-\w]+)\.\w+(?:\.\w+)?\/?.*/ig; // Write Your Pattern Here
 
 console.log(url1.match(urlReg));
 console.log(url2.match(urlReg));
 console.log(url3.match(urlReg));
 console.log(url4.match(urlReg));
 console.log(url5.match(urlReg));
-
-console.log(url1.match(urlReg).join(""));
-console.log(url2.match(urlReg).join(""));
-console.log(url3.match(urlReg).join(""));
-console.log(url4.match(urlReg).join(""));
-console.log(url5.match(urlReg).join(""));
